@@ -41,6 +41,9 @@
       &:hover {
         background-color: lightgreen;
       }
+      &:disabled {
+        opacity: .5;
+      }
     }
   }
 }

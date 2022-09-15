@@ -2,10 +2,10 @@
   <div class="title">Column {{ column.id }}</div>
   <div class="cards">
     <app-card *ngFor="let card of column.cards" [card]="card"></app-card>
-    <div class="new-card" *ngIf="isAddingCard">
-      <input type="number" />
-      <button class="btn btn-create">Create</button>
-    </div>
+    <form [formGroup]="form" (ngSubmit)="onAddCard()" class="new-card" *ngIf="isAddingCard">
+      <input type="number" formControlName="number" />
+      <button class="btn btn-create" type="submit" [disabled]="!form.valid">Create</button>
+    </form>
   </div>
   <button (click)="onToggle()" class="btn">
     {{ isAddingCard ? "Cancel" : "+ New" }}
