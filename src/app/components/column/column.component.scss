@@ -1,6 +1,9 @@
 .column {
+  max-height: 100%;
+  overflow-y: auto;
   background: grey;
   color: white;
+  border-radius: 10px;
   .title {
     text-align: center;
     padding: 20px;

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { IColumn } from 'src/app/models/column';
+import { ColumnService } from 'src/app/services/column.service';
 
 @Component({
   selector: 'app-column',
@@ -15,7 +16,7 @@ export class ColumnComponent implements OnInit {
     number: new FormControl('', { validators: [Validators.required] }),
   });
 
-  constructor() {}
+  constructor(private columnService: ColumnService) {}
 
   ngOnInit(): void {}
 
@@ -25,7 +26,8 @@ export class ColumnComponent implements OnInit {
 
   onAddCard(): void {
     if (this.form.valid) {
-      console.log(this.form.value);
+      this.columnService.createCard(this.column.id, this.form.value.number);
+      this.form.reset();
     }
   }
 }

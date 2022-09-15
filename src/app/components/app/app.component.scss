@@ -1,6 +1,6 @@
 .app {
-  width: 100%;
-  margin: 20px;
+  height: calc(100% - 40px);
+  border: 20px solid white;
   display: flex;
   justify-content: space-around;
 
