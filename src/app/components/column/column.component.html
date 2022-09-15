@@ -1,1 +1,3 @@
-<app-card></app-card>
+<div class="column">
+  <app-card *ngFor="let card of column.cards" [card]="card"></app-card>
+</div>
