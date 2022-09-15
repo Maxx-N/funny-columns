@@ -9,8 +9,13 @@ import { IColumn } from 'src/app/models/column';
 })
 export class ColumnComponent implements OnInit {
   @Input() column!: IColumn;
+  isAddingCard = false;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onToggle(): void {
+    this.isAddingCard = !this.isAddingCard;
+  }
 }
