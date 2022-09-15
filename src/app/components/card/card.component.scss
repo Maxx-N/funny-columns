@@ -5,6 +5,8 @@
   border-radius: 10px;
   background: red;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 
   &.green {
     background: green;
@@ -25,6 +27,17 @@
       border: 1px solid white;
       padding: 10px;
       border-radius: 10px;
+    }
+  }
+
+  .delete-btn {
+    border: none;
+    border-radius: 10px;
+    transform: scale(0.8);
+    cursor: pointer;
+    &:hover {
+      color: red;
+      transform: scale(1);
     }
   }
 }

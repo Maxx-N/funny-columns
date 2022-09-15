@@ -32,6 +32,10 @@ export class CardComponent implements OnInit {
     }
   }
 
+  onDelete(): void {
+    this.columnService.deleteCard(this.card.id);
+  }
+
   onDisplayForm(): void {
     this.isBeingUpdated = true;
   }

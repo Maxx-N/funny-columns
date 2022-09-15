@@ -20,12 +20,26 @@ export class ColumnService {
   }
 
   updatecard(cardId: number, number: number): void {
+    this.getCardById(cardId).number = number;
+  }
+
+  deleteCard(cardId: number): void {
+    const col = this.columns.find((col) =>
+      col.cards.map((c) => c.id).includes(cardId)
+    )!;
+    col.cards = col?.cards.filter((card) => card.id !== cardId);
+  }
+
+  private getCardById(cardId: number): ICard {
+    return this.getCards().find((c) => c.id === cardId)!;
+  }
+
+  private getCards(): ICard[] {
     const cards: ICard[] = [];
     this.columns.forEach((col) => {
       cards.push(...col.cards);
     });
-    const card = cards.find((c) => c.id === cardId)!;
-    card.number = number;
+    return cards;
   }
 
   private setColumns(): void {

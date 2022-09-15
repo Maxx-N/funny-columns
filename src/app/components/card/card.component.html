@@ -13,4 +13,5 @@
   <form *ngIf="isBeingUpdated" [formGroup]="form" (ngSubmit)="onUpdate()">
     <input type="number" formControlName="number" autofocus>
   </form>
+  <button type="button" class="delete-btn" (click)="onDelete()" *ngIf="!isBeingUpdated">X</button>
 </div>
