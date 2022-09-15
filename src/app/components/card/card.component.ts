@@ -12,4 +12,16 @@ export class CardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  isDivisibleBy3And5(): boolean {
+    return this.card.number % 3 === 0 && this.card.number % 5 === 0;
+  }
+
+  isDivisibleBy3(): boolean {
+    return !this.isDivisibleBy3And5() && this.card.number % 3 === 0;
+  }
+
+  isDivisibleBy5(): boolean {
+    return !this.isDivisibleBy3And5() && this.card.number % 5 === 0;
+  }
 }
