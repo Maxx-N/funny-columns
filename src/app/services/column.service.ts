@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ICard } from '../models/card';
 import { IColumn } from '../models/column';
 
 @Injectable({
@@ -16,6 +17,15 @@ export class ColumnService {
     this.lastId++;
     const col: IColumn = this.columns.find((col) => col.id === columnId)!;
     col.cards.push({ id: this.lastId, number });
+  }
+
+  updatecard(cardId: number, number: number): void {
+    const cards: ICard[] = [];
+    this.columns.forEach((col) => {
+      cards.push(...col.cards);
+    });
+    const card = cards.find((c) => c.id === cardId)!;
+    card.number = number;
   }
 
   private setColumns(): void {

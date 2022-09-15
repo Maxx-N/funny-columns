@@ -1,7 +1,16 @@
-<div class="card" [ngClass]="{
-  'green': isDivisibleBy3(),
-  'blue': isDivisibleBy5(),
-  'yellow': isDivisibleBy3And5()
-}">
-  {{ card.number }}
+<div
+  class="card"
+  [ngClass]="{
+    green: isDivisibleBy3(),
+    blue: isDivisibleBy5(),
+    yellow: isDivisibleBy3And5()
+  }"
+  (click)="onDisplayForm()"
+>
+  <span *ngIf="!isBeingUpdated">
+    {{ card.number }}
+  </span>
+  <form *ngIf="isBeingUpdated" [formGroup]="form" (ngSubmit)="onUpdate()">
+    <input type="number" formControlName="number">
+  </form>
 </div>
