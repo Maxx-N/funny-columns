@@ -11,6 +11,6 @@
     {{ card.number }}
   </span>
   <form *ngIf="isBeingUpdated" [formGroup]="form" (ngSubmit)="onUpdate()">
-    <input type="number" formControlName="number">
+    <input type="number" formControlName="number" autofocus>
   </form>
 </div>
